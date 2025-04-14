@@ -1,5 +1,8 @@
 package com.luism.leetcode.algorithms.easy;
 
+import java.util.HashMap;
+import java.util.Set;
+
 /**
  * LeetCode Problem 27: Remove Element
  * Difficulty: Easy

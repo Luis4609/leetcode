@@ -1,6 +1,7 @@
 package com.luism.leetcode.algorithms.easy;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * LeetCode problem 1: Two Sum
@@ -12,11 +13,12 @@ public class ExerciseTwoSum {
      * Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
      * You may assume that each input would have exactly one solution, and you may not use the same element twice.
      * You can return the answer in any order.
-     * @param nums array of integers
+     *
+     * @param nums   array of integers
      * @param target sum target
      * @return array of 2 integers that the sum is equal to the target
      */
-    public static int[] twoSum(int[] nums, int target) {
+    public static int[] twoSumV1(int[] nums, int target) {
 
         if (!isValidArrayLength(nums.length)) {
             return new int[0];
@@ -26,9 +28,9 @@ public class ExerciseTwoSum {
             return new int[0];
         }
 
-        for(int i = 0; i < nums.length - 1; i++) {
-            for(int j = 1; j < nums.length; j++) {
-                if((i != j) && nums[i] + nums[j] == target) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = 1; j < nums.length; j++) {
+                if ((i != j) && nums[i] + nums[j] == target) {
                     return new int[]{i, j};
                 }
             }
@@ -46,4 +48,23 @@ public class ExerciseTwoSum {
 
         return num <= Math.pow(10, 9) && num >= -Math.pow(10, 9);
     }
+
+    public static int[] twoSum(int[] nums, int target) {
+
+        // the num and their positions in nums
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int subtract = target - nums[i];
+            if (hashMap.get(subtract) != null) {
+                //aqui he terminado, porque significa que tengo los dos números
+                return new int[]{hashMap.get(subtract), i};
+            } else {
+                hashMap.put(nums[i], i);
+            }
+        }
+
+        return new int[] {};
+    }
+
 }
