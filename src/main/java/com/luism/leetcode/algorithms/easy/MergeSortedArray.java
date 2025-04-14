@@ -1,21 +1,16 @@
 package com.luism.leetcode.algorithms.easy;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 /**
+ * Link to LeetCode:
  * https://leetcode.com/problems/merge-sorted-array/?envType=study-plan-v2&envId=top-interview-150
  */
 public class MergeSortedArray {
 
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int i = m - 1; // Puntero al último elemento de nums1
-        int j = n - 1; // Puntero al último elemento de nums2
+        int i = m - 1;
+        int j = n - 1;
         int k = m + n - 1; // Puntero al último índice de nums1 (donde se colocará el elemento fusionado)
 
-        //mientras que ninguno de los arrays llegue a la posicion 0
         while (i >= 0 && j >= 0) {
             if (nums1[i] > nums2[j]) {
                 nums1[k] = nums1[i];
@@ -27,7 +22,7 @@ public class MergeSortedArray {
             k--;
         }
 
-        // Si quedan elementos en nums2, copiarlos al principio de nums1
+        // If there are remaining elements in nums2, copy them to the beginning of nums1
         while (j >= 0) {
             nums1[k] = nums2[j];
             j--;
@@ -44,11 +39,4 @@ public class MergeSortedArray {
         return arrayWithOutZeros;
     }
 
-    public boolean isAnagram(String s, String t) {
-
-        String.
-        if (s == t.)
-
-        return false;
-    }
 }

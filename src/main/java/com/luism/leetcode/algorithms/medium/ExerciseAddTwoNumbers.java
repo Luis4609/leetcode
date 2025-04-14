@@ -2,12 +2,11 @@ package com.luism.leetcode.algorithms.medium;
 
 import com.luism.leetcode.entity.ListNode;
 
+/**
+ * LeetCode Problem 2: Add Two Numbers
+ * https://leetcode.com/problems/add-two-numbers/description/
+ */
 public class ExerciseAddTwoNumbers {
-
-//    You are given two non-empty linked lists representing two non-negative integers.
-//    The digits are stored in reverse order, and each of their nodes contains a single digit.
-//    Add the two numbers and return the sum as a linked list.
-//    You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 

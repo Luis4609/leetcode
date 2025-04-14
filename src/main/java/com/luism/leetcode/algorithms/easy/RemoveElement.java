@@ -1,6 +1,8 @@
 package com.luism.leetcode.algorithms.easy;
 
 /**
+ * LeetCode Problem 27: Remove Element
+ * Difficulty: Easy
  * https://leetcode.com/problems/remove-element/?envType=study-plan-v2&envId=top-interview-150
  */
 public class RemoveElement {
@@ -9,15 +11,12 @@ public class RemoveElement {
 
         int valAppearancesInNums = 0;
 
-        for(int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
 
-            if(nums[i] == val) {
+            if (nums[i] == val) {
                 valAppearancesInNums++;
             }
         }
-
-        while ()
-
 
         return nums.length;
     }

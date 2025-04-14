@@ -2,20 +2,25 @@ package com.luism.leetcode.algorithms.easy;
 
 import com.luism.leetcode.entity.ListNode;
 
+/**
+ * LeetCode problem 21: Merge Two Sorted Lists
+ * https://leetcode.com/problems/merge-two-sorted-lists/description/
+ * 
+ */
 public class MergeSortedList {
 
-//    You are given the heads of two sorted linked lists list1 and list2.
-//    Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
-//    Return the head of the merged linked list.
-
-//    Input: list1 = [1,2,4], list2 = [1,3,4]
-//    Output: [1,1,2,3,4,4]
-
+    /**
+     * Merges two sorted linked lists into a single sorted linked list.
+     *
+     * @param list1 The head of the first sorted linked list.
+     * @param list2 The head of the second sorted linked list.
+     * @return The head of the merged sorted linked list. If both input lists are
+     *         null,
+     *         an empty ListNode is returned.
+     */
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
-        int minValue = 0;
         ListNode node = new ListNode();
-        ListNode tail = new ListNode();
 
         while (list1 != null && list2 != null) {
 

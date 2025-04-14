@@ -2,6 +2,10 @@ package com.luism.leetcode.algorithms.easy;
 
 import java.util.Arrays;
 
+/**
+ * LeetCode problem 1: Two Sum
+ * https://leetcode.com/problems/two-sum/description/
+ */
 public class ExerciseTwoSum {
 
     /**
