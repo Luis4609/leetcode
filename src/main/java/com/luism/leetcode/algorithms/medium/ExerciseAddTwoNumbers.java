@@ -1,11 +1,6 @@
-package com.luism.leetcode.algorithms;
+package com.luism.leetcode.algorithms.medium;
 
 import com.luism.leetcode.entity.ListNode;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class ExerciseAddTwoNumbers {
 
@@ -14,98 +9,30 @@ public class ExerciseAddTwoNumbers {
 //    Add the two numbers and return the sum as a linked list.
 //    You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
-    List<Integer> integerList1 = new ArrayList<>();
-    List<Integer> integerList2 = new ArrayList<>();
-
-    ListNode finalValue;
-    ListNode reverseSumListNode;
-
-    public static int combinarDigitosStream(List<Integer> integers) {
-        if (integers == null || integers.isEmpty()) {
-            return 0;
-        }
-        final String integerAsString = integers
-                .stream()
-                .map(String::valueOf)
-                .collect(Collectors.joining());
-        try {
-            return Integer.parseInt(integerAsString);
-        } catch (NumberFormatException e) {
-            System.err.println("Error al convertir la cadena a número: " + integerAsString);
-            return 0;
-        }
-    }
-
-    public static List<Integer> intToDigitList(int integer) {
-
-        return String.valueOf(Math.abs(integer))
-                .chars()
-                .map(Character::getNumericValue)
-                .boxed()
-                .toList();
-    }
-
-    /**
-     * @param l1
-     * @param l2
-     * @return ListNode that represent the reverse sum of l1 + l2
-     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-        if (l1.getNext() == null && l2.getNext() == null) {
+        ListNode dummyHead = new ListNode(0);
+        ListNode current = dummyHead;
+        int carry = 0;
 
-            integerList1.add(l1.getVal());
-            integerList2.add(l2.getVal());
+        while (l1 != null || l2 != null || carry != 0) {
+            int val1 = (l1 != null) ? l1.getVal() : 0;
+            int val2 = (l2 != null) ? l2.getVal() : 0;
 
-            //TODO
-            Collections.reverse(integerList1);
-            Collections.reverse(integerList2);
+            int sum = val1 + val2 + carry;
+            carry = sum / 10;
+            current.setNext(new ListNode(sum % 10));
+            current = current.getNext();
 
-            this.finalValue = buildListNote(integerList1, integerList2);
-
-            return this.finalValue;
+            if (l1 != null) {
+                l1 = l1.getNext();
+            }
+            if (l2 != null) {
+                l2 = l2.getNext();
+            }
         }
 
-        integerList1.add(l1.getVal());
-        integerList2.add(l2.getVal());
-
-        return addTwoNumbers(l1.getNext(), l2.getNext());
-    }
-
-    /**
-     * @param integerList
-     * @param integerList1
-     * @return
-     */
-    private ListNode buildListNote(final List<Integer> integerList, final List<Integer> integerList1) {
-
-        int i = combinarDigitosStream(integerList);
-        int j = combinarDigitosStream(integerList1);
-
-        int sum = i + j;
-
-        List<Integer> sumList = intToDigitList(sum);
-
-        ListNode node = new ListNode();
-
-        //TODO
-        sumList.forEach(integer -> {
-            node.setVal(integer);
-            node.setNext(new ListNode());
-        });
-
-        return node;
-    }
-
-    public ListNode buildListNote(final List<Integer> value) {
-
-        List<Integer> list = value;
-
-        this.reverseSumListNode.setVal(list.get(0));
-        list.remove(0);
-        this.reverseSumListNode.setNext(buildListNote(list));
-
-        return null;
+        return dummyHead.getNext();
     }
 
 }

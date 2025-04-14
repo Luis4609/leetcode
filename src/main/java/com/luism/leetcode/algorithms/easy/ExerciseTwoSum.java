@@ -1,4 +1,4 @@
-package com.luism.leetcode.algorithms;
+package com.luism.leetcode.algorithms.easy;
 
 import java.util.Arrays;
 

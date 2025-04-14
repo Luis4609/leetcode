@@ -1,6 +1,5 @@
-package com.luism.leetcode.algorithms;
+package com.luism.leetcode.algorithms.medium;
 
-import com.luism.leetcode.algorithms.medium.ExerciseAddTwoNumbers;
 import com.luism.leetcode.entity.ListNode;
 import org.junit.jupiter.api.Test;
 
